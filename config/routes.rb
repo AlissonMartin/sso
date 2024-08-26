@@ -1,6 +1,23 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :oauth_clients
+  devise_for :users
+  devise_scope :user do
+    get "signup", to: "devise/registrations#new"
+    get "login", to: "devise/sessions#new"
+    get "logout", to: "devise/sessions#destroy"
+ end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  authenticated :user do
+    root 'home#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: 'devise/sessions#new'
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+
+  match '/auth/sso/authorize' => 'auth#authorize', via: :all
+  match '/auth/sso/access_token' => 'auth#access_token', via: :all
+  match '/auth/sso/user' => 'auth#user', via: :all
+  match '/oauth/token' => 'auth#access_token', via: :all
 end
