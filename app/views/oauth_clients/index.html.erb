@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Oauth clients</h1>
+
+<div id="oauth_clients">
+  <% @oauth_clients.each do |oauth_client| %>
+    <%= render oauth_client %>
+    <p>
+      <%= link_to "Show this oauth client", oauth_client %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New oauth client", new_oauth_client_path %>
