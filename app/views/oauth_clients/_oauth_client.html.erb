@@ -1,17 +1,30 @@
-<div id="<%= dom_id oauth_client %>">
-  <p>
-    <strong>Name:</strong>
-    <%= oauth_client.name %>
-  </p>
+<div id="<%= dom_id oauth_client %>" class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Detalhes do OAuth Client</h4>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Nome:</strong>
+        <span class="text-muted"><%= oauth_client.name %></span>
+      </p>
 
-  <p>
-    <strong>App:</strong>
-    <%= oauth_client.app_id %>
-  </p>
+      <p>
+        <strong>App ID:</strong>
+        <span class="text-muted"><%= oauth_client.app_id %></span>
+      </p>
 
-  <p>
-    <strong>App secret:</strong>
-    <%= oauth_client.app_secret %>
-  </p>
-
+      <p>
+        <strong>App Secret:</strong>
+        <span class="text-muted"><%= oauth_client.app_secret %></span>
+      </p>
+    </div>
+    <% if @oauth_client %>
+      <div class="m-3">
+        <%= link_to "Editar", edit_oauth_client_path(@oauth_client) %> |
+        <%= link_to "Voltar", oauth_clients_path %> |
+        <%= link_to "Deletar", oauth_client_path(@oauth_client), data: { turbo_method: :delete } %>
+      </div>
+    <% end %>
+  </div>
 </div>

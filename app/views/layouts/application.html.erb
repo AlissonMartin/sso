@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <% if current_user.present? %>
+      <%= render "layouts/header" %>
+    <% end %>
+
     <% flash.each do |type, message| %>
   <div class="alert alert-<%= type %>">
     <%= message %>
