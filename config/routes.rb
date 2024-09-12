@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "signup", to: "devise/registrations#new"
     get "login", to: "devise/sessions#new"
-    get "logout", to: "devise/sessions#destroy"
- end
+    get "logout", to: "sessions#destroy"
+  end
 
   authenticated :user do
     root 'home#index', as: :authenticated_root

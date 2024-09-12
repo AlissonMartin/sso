@@ -3,7 +3,7 @@
     <div class="card-body">
       <h3 class="text-center mb-4">Login</h3>
 
-      <%= form_for(resource, as: resource_name, url: user_session_path(resource_name), html: { class: 'mb-3' }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: user_session_path(), html: { class: 'mb-3' }) do |f| %>
         <div class="form-group mb-3">
           <%= f.label :email, class: 'form-label' %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
