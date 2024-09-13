@@ -1,7 +1,7 @@
 require 'jwt'
 
 class JwtService
-    # Descobrir um meio de passar a secret_key
+
     SECRET_KEY = Rails.application.credentials.secret_key_base
     ALGORITHM_TYPE = 'HS256'
 
