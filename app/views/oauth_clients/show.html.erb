@@ -1,10 +1,3 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @oauth_client %>
-
-<div>
-  <%= link_to "Edit this oauth client", edit_oauth_client_path(@oauth_client) %> |
-  <%= link_to "Back to oauth clients", oauth_clients_path %>
-
-  <%= button_to "Destroy this oauth client", @oauth_client, method: :delete %>
-</div>

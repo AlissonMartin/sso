@@ -22,4 +22,10 @@ class OauthClient < ApplicationRecord
         self.app_secret = SecureRandom.hex
       end while self.class.exists?(app_secret: app_secret)
     end
+
+  private
+
+  def jwt_secret_key(client_id)
+    OauthClient.find_by(client_id: client_id).secret_key
+  end
 end
